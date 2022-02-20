@@ -74,6 +74,11 @@ class Property
      */
     private $status;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Owner::class, inversedBy="properties")
+     */
+    private $owner;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -215,5 +220,16 @@ class Property
         $this->area = $area;
     }
 
+    public function getOwner(): ?Owner
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?Owner $owner): self
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
 
 }

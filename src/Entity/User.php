@@ -50,6 +50,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $owner;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Tenant::class, cascade={"persist", "remove"})
+     */
+    private $tenant;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -175,6 +180,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setOwner(?Owner $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getTenant(): ?Tenant
+    {
+        return $this->tenant;
+    }
+
+    public function setTenant(?Tenant $tenant): self
+    {
+        $this->tenant = $tenant;
 
         return $this;
     }
