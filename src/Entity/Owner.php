@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiResource()
  * @ORM\Entity(repositoryClass=OwnerRepository::class)
  */
-class Owner
+class Owner extends User
 {
     /**
      * @ORM\Id
