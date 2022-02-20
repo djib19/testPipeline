@@ -79,6 +79,11 @@ class Property
      */
     private $owner;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Lease::class, mappedBy="property", cascade={"persist", "remove"})
+     */
+    private $lease;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -228,6 +233,28 @@ class Property
     public function setOwner(?Owner $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getLease(): ?Lease
+    {
+        return $this->lease;
+    }
+
+    public function setLease(?Lease $lease): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($lease === null && $this->lease !== null) {
+            $this->lease->setProperty(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($lease !== null && $lease->getProperty() !== $this) {
+            $lease->setProperty($this);
+        }
+
+        $this->lease = $lease;
 
         return $this;
     }

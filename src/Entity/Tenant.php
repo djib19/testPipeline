@@ -29,6 +29,11 @@ class Tenant
      */
     private $validated;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Lease::class, inversedBy="tenant")
+     */
+    private $lease;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +65,18 @@ class Tenant
     public function setValidated($validated): void
     {
         $this->validated = $validated;
+    }
+
+    public function getLease(): ?Lease
+    {
+        return $this->lease;
+    }
+
+    public function setLease(?Lease $lease): self
+    {
+        $this->lease = $lease;
+
+        return $this;
     }
 
 
