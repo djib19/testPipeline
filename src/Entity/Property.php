@@ -372,5 +372,4 @@ class Property
 
         return $this;
     }
-
 }
