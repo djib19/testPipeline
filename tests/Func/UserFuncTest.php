@@ -17,7 +17,7 @@ class UserFuncTest extends EndPoint
          * a verifier
          */
         $response = $this->getQuery(Request::METHOD_GET, '/api/users');
-        //self::assertEquals(Response::HTTP_OK, intval($response->getStatusCode()));
+        self::assertEquals(Response::HTTP_OK, $response->getStatusCode());
     }
 
     public function testPostUsers(): void
