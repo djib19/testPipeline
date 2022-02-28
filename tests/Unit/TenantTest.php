@@ -30,7 +30,6 @@ class TenantTest extends TestCase
 
     /*public function testGetValidated() : void
     {
-
         $response = $this->tenant->setValidated();
         //dump("res", $response);
         self::assertInstanceOf(Tenant::class, $response);

@@ -2,30 +2,21 @@
 
 namespace App\Tests\Func;
 
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Faker\Factory;
 
 class UserFuncTest extends EndPoint
 {
-    private $userData = ["email"=>"test@test.fr", "roles"=>["ROLE_USER"], "password"=>"password", "firstname"=>"firstname", "lastname"=>"lastname"];
+    /*private $userData = ["email"=>"test@test.fr", "roles"=>["ROLE_USER"], "password"=>"password", "firstname"=>"firstname", "lastname"=>"lastname"];
     //private $userData = '{"name": "test@test.fr", "password": "password"}';
-    /**
-     * TODO
-     */
-    /*
+
     public function testGetUsers()
     {
         $response = $this->getQuery(Request::METHOD_GET, '/api/users');
         //self::assertEquals(Response::HTTP_OK, $response->getStatusCode());
         self::assertNotEmpty($response);
+    }
 
-    }*/
-
-    /**
-     * TODO
-     */
     public function testPostUsers(): void
     {
         $userDataJson = json_encode($this->userData);
@@ -43,4 +34,5 @@ class UserFuncTest extends EndPoint
         $faker = Factory::create();
         return sprintf($this->userData, $faker->email);
     }
+    */
 }
