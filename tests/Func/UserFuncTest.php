@@ -11,22 +11,23 @@ class UserFuncTest extends EndPoint
 {
     private $userData = ["email"=>"test@test.fr", "roles"=>["ROLE_USER"], "password"=>"password", "firstname"=>"firstname", "lastname"=>"lastname"];
     //private $userData = '{"name": "test@test.fr", "password": "password"}';
+    /**
+     * TODO
+     */
+    /*
     public function testGetUsers()
     {
-        /**
-         * a verifier
-         */
         $response = $this->getQuery(Request::METHOD_GET, '/api/users');
         //self::assertEquals(Response::HTTP_OK, $response->getStatusCode());
         self::assertNotEmpty($response);
 
-    }
+    }*/
 
+    /**
+     * TODO
+     */
     public function testPostUsers(): void
     {
-        /**
-         * a faire
-         */
         $userDataJson = json_encode($this->userData);
         //private $userData = ["email"=>"test@test.fr", "roles"=>["ROLE_USER"], "password"=>"password", "firstname"=>"firstname", "lastname"=>"lastname"];
         $response = $this->getQuery(Request::METHOD_POST,'/api/users',['json' => ['email' => "test@test.fr", "roles"=>["ROLE_USER"], "password"=>"password", "firstname"=>"firstname", "lastname"=>"lastname"]]);
